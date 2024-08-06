@@ -111,7 +111,7 @@ export async function onRequest(context) {
         const bodyUrl = new URL(url);
 
         if (bodyUrl.hostname === originurl.hostname) {
-            return Response.json({ message: '不能缩短这个网址,请更新网址。' }, {
+            return Response.json({ message: '不能缩短这个网址,请重新填写。' }, {
                 headers: corsHeaders,
                 status: 400
             })
