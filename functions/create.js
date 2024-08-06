@@ -64,7 +64,7 @@ export async function onRequest(context) {
 
     // 自定义slug长度检查 2<slug<10 是否不以文件后缀结尾
     if (slug && (slug.length < 2 || slug.length > 10 || /.+\.[a-zA-Z]+$/.test(slug))) {
-        return Response.json({ message: 'Illegal length: slug, (>= 2 && <= 10), or not ending with a file extension.' },{
+        return Response.json({ message: '自定义后缀2-10个字符之间' },{
             headers: corsHeaders,
             status: 400
         
@@ -111,7 +111,7 @@ export async function onRequest(context) {
         const bodyUrl = new URL(url);
 
         if (bodyUrl.hostname === originurl.hostname) {
-            return Response.json({ message: '不能缩短这个网址' }, {
+            return Response.json({ message: '不能缩短这个网址,请更新网址。' }, {
                 headers: corsHeaders,
                 status: 400
             })
