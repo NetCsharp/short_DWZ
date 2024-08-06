@@ -52,11 +52,11 @@ export async function onRequest(context) {
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '86400', // 24 hours
     };
-    if (!url) return Response.json({ message: 'Missing required parameter: url.' });
+    if (!url) return Response.json({ message: '填写正确' });
 
     // url格式检查
     if (!/^https?:\/\/.{3,}/.test(url)) {
-        return Response.json({ message: 'Illegal format: url.' },{
+        return Response.json({ message: '网址格式不正确' },{
             headers: corsHeaders,
             status: 400
         })
@@ -90,7 +90,7 @@ export async function onRequest(context) {
 
             // slug 已存在
             if (existUrl) {
-                return Response.json({ message: 'Slug already exists.' },{
+                return Response.json({ message: '短网址已存在.' },{
                     headers: corsHeaders,
                     status: 200  
                 })
@@ -111,7 +111,7 @@ export async function onRequest(context) {
         const bodyUrl = new URL(url);
 
         if (bodyUrl.hostname === originurl.hostname) {
-            return Response.json({ message: 'You cannot shorten a link to the same domain.' }, {
+            return Response.json({ message: '不能缩短这个网址' }, {
                 headers: corsHeaders,
                 status: 400
             })
