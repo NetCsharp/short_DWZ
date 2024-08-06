@@ -211,7 +211,7 @@
         <summary>自定义后缀</summary>
         <div>
           <input placeholder="slug" x-model="slug" />
-          <small>默认是随机生成后缀。</small>
+          <small>不填写，默认随机生成后缀。</small>
         </div>
       </details>
       <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
